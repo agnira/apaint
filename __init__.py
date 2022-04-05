@@ -14,10 +14,10 @@
 bl_info = {
     "name" : "apaint",
     "author" : "Agni Rakai Sahakarya",
-    "description" : "",
+    "description" : "Extra image paint context menu blender addons",
     "blender" : (2, 80, 0),
     "version" : (0, 0, 1),
-    "location" : "",
+    "location" : "Right Click on Image Paint Mode",
     "warning" : "",
     "category" : "Generic"
 }

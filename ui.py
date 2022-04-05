@@ -1,11 +1,10 @@
-from cgitb import text
 from bpy import types
 from . import dataUtil
 
 temp = dataUtil.apaint_temp
 c_icon = dataUtil.c_icon
 
-def apaint_menu(self, context):
+def apaint_menu(self, context : types.Context):
     ip: types.ImagePaint = context.tool_settings.image_paint
     b = ip.brush
 
@@ -25,3 +24,11 @@ def apaint_menu(self, context):
     row.operator("apaint.toggle_draw", depress=temp["is_draw"], text="", icon="GREASEPENCIL")
     row.operator("apaint.toggle_line", depress=temp["is_line"], text="", icon="IPO_LINEAR")
     row.operator("apaint.toggle_stamp", depress=temp["is_stamp"], text="", icon_value=c_icon("STAMP"))
+
+    row = layout.row(align=True)
+    row.menu("APAINT_MT_palette")
+
+    row = layout.row(align=True)
+    col = row.column()
+    col.template_palette(ip, "palette", color=False)
+    

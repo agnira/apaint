@@ -1,5 +1,4 @@
-from pickle import TRUE
-from bpy import types
+from bpy import types, props
 from . import dataUtil
 
 temp = dataUtil.apaint_temp
@@ -100,4 +99,22 @@ class APAINT_OT_toggle_stamp(types.Operator):
         if not temp["is_stamp"]:
             temp["is_stamp"] = True
             b.stroke_method = "ANCHORED"
+        return {'FINISHED'}
+
+class APAINT_OT_palette_operator(types.Operator):
+    bl_idname = "apaint.palette_operator"
+    bl_label = "Palletes"
+    bl_description = "Select Palletes"
+    
+    palette_name : props.StringProperty(name="pallete_name")
+    @classmethod
+    def poll(cls, context):
+        return context.object is not None
+    def execute(self, context: types.Context):
+        ip = context.tool_settings.image_paint
+        if self.palette_name == "-" :
+            ip.palette = None
+        else :
+            print(self.palette_name)
+            ip.palette = context.blend_data.palettes[self.palette_name]
         return {'FINISHED'}
