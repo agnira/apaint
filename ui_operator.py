@@ -1,5 +1,5 @@
 from pickle import TRUE
-from bpy import types, context
+from bpy import types
 from . import dataUtil
 
 temp = dataUtil.apaint_temp
@@ -9,7 +9,7 @@ class APAINT_OT_toggle_eraser(types.Operator):
     bl_label = "Toggle Eraser"
     bl_description = "Toggle bursh blend to eraser"
 
-    def execute(self, _):
+    def execute(self, context):
         ip = context.tool_settings.image_paint
         b = ip.brush
         if not temp["toggle_eraser"]:
@@ -26,7 +26,7 @@ class APAINT_OT_toggle_alpha_lock(types.Operator):
     bl_label = "Toggle Alpha Lock"
     bl_description = "Toggle Alpha Lock"
 
-    def execute(self, _):
+    def execute(self, context):
         ip = context.tool_settings.image_paint
         b = ip.brush
         if b.use_alpha :
@@ -40,7 +40,7 @@ class APAINT_OT_toggle_occlude(types.Operator):
     bl_label = "Toggle Occlude"
     bl_description = "Toggle Occlude"
 
-    def execute(self, _):
+    def execute(self, context):
         ip = context.tool_settings.image_paint
         b = ip.brush
         if ip.use_occlude :
@@ -54,7 +54,7 @@ class APAINT_OT_toggle_culling(types.Operator):
     bl_label = "Toggle Culling"
     bl_description = "Toggle Backface Culling"
 
-    def execute(self, _):
+    def execute(self, context):
         ip = context.tool_settings.image_paint
         b = ip.brush
         if ip.use_backface_culling :
@@ -68,7 +68,7 @@ class APAINT_OT_toggle_draw(types.Operator):
     bl_label = "Draw Tool"
     bl_description = "Use Draw Tool"
 
-    def execute(self, _):
+    def execute(self, context):
         ip = context.tool_settings.image_paint
         b = ip.brush
         if not temp["is_draw"]:
@@ -81,7 +81,7 @@ class APAINT_OT_toggle_line(types.Operator):
     bl_label = "Line Tool"
     bl_description = "Use Line Tool"
 
-    def execute(self, _):
+    def execute(self, context):
         ip = context.tool_settings.image_paint
         b = ip.brush
         if not temp["is_line"]:
@@ -94,7 +94,7 @@ class APAINT_OT_toggle_stamp(types.Operator):
     bl_label = "Stamp Tool"
     bl_description = "Use Stamp Tool"
 
-    def execute(self, _):
+    def execute(self, context):
         ip = context.tool_settings.image_paint
         b = ip.brush
         if not temp["is_stamp"]:
