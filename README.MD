@@ -21,6 +21,9 @@ Righ Click on Image Paint mode.
 5. Draw Mode
 6. Line Mode
 7. Stamp Mode
+8. Palette
+
+> :information_source: **To Keep the UI clean, use your custom collor pallete**
 
 ## Upcoming Features
 
