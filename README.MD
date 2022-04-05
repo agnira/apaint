@@ -27,7 +27,6 @@ Righ Click on Image Paint mode.
 
 ## Upcoming Features
 
-1. Color Pallete
-2. Brush List
+1. Brush List
 
 > :warning: **If you found some bugs, or want to give feedback. You can chat me on twiiter @RakaiSahakarya.**
