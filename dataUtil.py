@@ -1,13 +1,14 @@
 import os
-from typing import TypedDict
+# for dev
+# from typing import TypedDict
 
-
-class ApaintTemp(TypedDict):
-    toggle_eraser: bool
-    brush_blend: str
-    is_draw: bool
-    is_line: bool
-    is_stamp: bool
+# for dev
+# class ApaintTemp(TypedDict):
+#     toggle_eraser: bool
+#     brush_blend: str
+#     is_draw: bool
+#     is_line: bool
+#     is_stamp: bool
 
 def load_icon():
     import bpy.utils.previews
@@ -29,4 +30,8 @@ def c_icon(name:str) :
     global custom_icons
     return custom_icons[name].icon_id
 
-apaint_temp : ApaintTemp = {'toggle_eraser': False}
+# for dev
+# apaint_temp : ApaintTemp = {'toggle_eraser': False}
+
+apaint_temp  = {'toggle_eraser': False}
+
