@@ -2,6 +2,10 @@
 
 Apaint is my personal tool for speed up my texturing process on blender. With extending Blender Image Paint Context Menu, Apaint bring some shortcut to acces some menu that take your time when you do it over and over.
 
+## How To download
+
+![HOW TO DOWNLOAD](docs/HOW-TO-DOWNLOAD.png)
+
 ## Addons Location
 
 Righ Click on Image Paint mode.
