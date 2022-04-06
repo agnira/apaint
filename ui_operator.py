@@ -118,3 +118,18 @@ class APAINT_OT_palette_operator(types.Operator):
             print(self.palette_name)
             ip.palette = context.blend_data.palettes[self.palette_name]
         return {'FINISHED'}
+
+class APAINT_OT_toggle_smooth(types.Operator):
+    bl_idname = "apaint.toggle_smooth"
+    bl_label = "use smooth brush"
+    bl_description = "use smooth brush"
+
+    def execute(self, context: types.Context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if b.use_smooth_stroke:
+            b.use_smooth_stroke = False
+        else:
+            b.use_smooth_stroke = True
+        return {'FINISHED'}
+    

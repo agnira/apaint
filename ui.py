@@ -25,6 +25,10 @@ def apaint_menu(self, context : types.Context):
     row.operator("apaint.toggle_line", depress=temp["is_line"], text="", icon="IPO_LINEAR")
     row.operator("apaint.toggle_stamp", depress=temp["is_stamp"], text="", icon_value=c_icon("STAMP"))
 
+    if temp["is_draw"] :
+        row = layout.row(align=True)
+        row.operator("apaint.toggle_smooth", depress=b.use_smooth_stroke, text="", icon="IPO_EASE_IN_OUT")
+
     row = layout.row(align=True)
     row.menu("APAINT_MT_palette")
 
