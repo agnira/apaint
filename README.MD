@@ -29,4 +29,4 @@ Righ Click on Image Paint mode.
 
 1. Brush List
 
-> :warning: **If you found some bugs, or want to give feedback. You can chat me on twiiter @RakaiSahakarya.**
+> :warning: **If you found some bugs, or want to give feedback. You can write it on Issues Tab.**
