@@ -132,4 +132,133 @@ class APAINT_OT_toggle_smooth(types.Operator):
         else:
             b.use_smooth_stroke = True
         return {'FINISHED'}
+
+class APAINT_OT_toggle_fallof_custom(types.Operator):
+    bl_idname = "apaint.toggle_fallof_custom"
+    bl_label = "custom fallof"
+    bl_description = "Use Custom Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_custom"]:
+            temp["is_fallof_custom"] = True
+            b.curve_preset = "CUSTOM"
+        return {'FINISHED'}
+
+class APAINT_OT_toggle_fallof_smooth(types.Operator):
+    bl_idname = "apaint.toggle_fallof_smooth"
+    bl_label = "smooth fallof"
+    bl_description = "Use Smooth Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_smooth"]:
+            temp["is_fallof_smooth"] = True
+            b.curve_preset = "SMOOTH"
+        return {'FINISHED'}
     
+class APAINT_OT_toggle_fallof_smoother(types.Operator):
+    bl_idname = "apaint.toggle_fallof_smoother"
+    bl_label = "smoother fallof"
+    bl_description = "Use Smoother Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_smoother"]:
+            temp["is_fallof_smoother"] = True
+            b.curve_preset = "SMOOTHER"
+        return {'FINISHED'}
+
+class APAINT_OT_fallof_sphere(types.Operator):
+    bl_idname = "apaint.toggle_fallof_sphere"
+    bl_label = "sphere fallof"
+    bl_description = "Use Sphere Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_sphere"]:
+            temp["is_fallof_sphere"] = True
+            b.curve_preset = "SPHERE"
+        return {'FINISHED'}
+
+class APAINT_OT_toggle_fallof_root(types.Operator):
+    bl_idname = "apaint.toggle_fallof_root"
+    bl_label = "root fallof"
+    bl_description = "Use Root Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_root"]:
+            temp["is_fallof_root"] = True
+            b.curve_preset = "ROOT"
+        return {'FINISHED'}
+
+class APAINT_OT_toggle_fallof_sharp(types.Operator):
+    bl_idname = "apaint.toggle_fallof_sharp"
+    bl_label = "sharp fallof"
+    bl_description = "Use Sharp Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_sharp"]:
+            temp["is_fallof_sharp"] = True
+            b.curve_preset = "SHARP"
+        return {'FINISHED'}
+    
+class APAINT_OT_toggle_fallof_lin(types.Operator):
+    bl_idname = "apaint.toggle_fallof_lin"
+    bl_label = "lin fallof"
+    bl_description = "Use Lin Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_lin"]:
+            temp["is_fallof_lin"] = True
+            b.curve_preset = "LIN"
+        return {'FINISHED'}
+    
+class APAINT_OT_toggle_fallof_pow4(types.Operator):
+    bl_idname = "apaint.toggle_fallof_pow4"
+    bl_label = "pow fallof"
+    bl_description = "Use Pow4 Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_pow4"]:
+            temp["is_fallof_pow4"] = True
+            b.curve_preset = "POW4"
+        return {'FINISHED'}
+    
+class APAINT_OT_toggle_fallof_invsquare(types.Operator):
+    bl_idname = "apaint.toggle_fallof_invsquare"
+    bl_label = "invsquare fallof"
+    bl_description = "Use Invsquare Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_invsquare"]:
+            temp["is_fallof_invsquare"] = True
+            b.curve_preset = "INVSQUARE"
+        return {'FINISHED'}
+    
+class APAINT_OT_toggle_fallof_constant(types.Operator):
+    bl_idname = "apaint.toggle_fallof_constant"
+    bl_label = "constant fallof"
+    bl_description = "Use Constant Fallof"
+
+    def execute(self, context):
+        ip = context.tool_settings.image_paint
+        b = ip.brush
+        if not temp["is_fallof_constant"]:
+            temp["is_fallof_constant"] = True
+            b.curve_preset = "CONSTANT"
+        return {'FINISHED'}
