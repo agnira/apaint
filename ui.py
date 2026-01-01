@@ -1,4 +1,4 @@
-from bpy import types
+from bpy import types, app
 from . import dataUtil
 
 temp = dataUtil.apaint_temp
@@ -15,16 +15,20 @@ def apaint_menu(self, context: types.Context):
     temp["is_line"] = bool(b.stroke_method == "LINE")
     temp["is_stamp"] = bool(b.stroke_method == "ANCHORED")
 
-    temp["is_fallof_custom"] = bool(b.curve_preset == "CUSTOM")
-    temp["is_fallof_smooth"] = bool(b.curve_preset == "SMOOTH")
-    temp["is_fallof_smoother"] = bool(b.curve_preset == "SMOOTHER")
-    temp["is_fallof_sphere"] = bool(b.curve_preset == "SPHERE")
-    temp["is_fallof_root"] = bool(b.curve_preset == "ROOT")
-    temp["is_fallof_sharp"] = bool(b.curve_preset == "SHARP")
-    temp["is_fallof_lin"] = bool(b.curve_preset == "LIN")
-    temp["is_fallof_pow4"] = bool(b.curve_preset == "POW4")
-    temp["is_fallof_invsquare"] = bool(b.curve_preset == "INVSQUARE")
-    temp["is_fallof_constant"] = bool(b.curve_preset == "CONSTANT")
+    curve_preset = "curve_preset"
+    if app.version[0] == 5:
+        curve_preset = "curve_distance_falloff_preset"
+
+    temp["is_fallof_smooth"] = bool(getattr(b, curve_preset) == "SMOOTH")
+    temp["is_fallof_custom"] = bool(getattr(b, curve_preset) == "CUSTOM")
+    temp["is_fallof_smoother"] = bool(getattr(b, curve_preset) == "SMOOTHER")
+    temp["is_fallof_sphere"] = bool(getattr(b, curve_preset) == "SPHERE")
+    temp["is_fallof_root"] = bool(getattr(b, curve_preset) == "ROOT")
+    temp["is_fallof_sharp"] = bool(getattr(b, curve_preset) == "SHARP")
+    temp["is_fallof_lin"] = bool(getattr(b, curve_preset) == "LIN")
+    temp["is_fallof_pow4"] = bool(getattr(b, curve_preset) == "POW4")
+    temp["is_fallof_invsquare"] = bool(getattr(b, curve_preset) == "INVSQUARE")
+    temp["is_fallof_constant"] = bool(getattr(b, curve_preset) == "CONSTANT")
 
     row = layout.row(align=True)
     row.operator("apaint.toggle_eraser",

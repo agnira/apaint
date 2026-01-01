@@ -1,7 +1,13 @@
-from bpy import types, props
+from bpy import types, props, app
 from . import dataUtil
 
 temp = dataUtil.apaint_temp
+
+def toggle_fallof(mode:str, b:types.Brush):
+    if app.version[0] == 5:
+        b.curve_distance_falloff_preset = mode
+    else:
+        b.curve_preset = mode
 
 class APAINT_OT_toggle_eraser(types.Operator):
     bl_idname = "apaint.toggle_eraser"
@@ -143,7 +149,7 @@ class APAINT_OT_toggle_fallof_custom(types.Operator):
         b = ip.brush
         if not temp["is_fallof_custom"]:
             temp["is_fallof_custom"] = True
-            b.curve_preset = "CUSTOM"
+            toggle_fallof("CUSTOM", b)
         return {'FINISHED'}
 
 class APAINT_OT_toggle_fallof_smooth(types.Operator):
@@ -156,7 +162,7 @@ class APAINT_OT_toggle_fallof_smooth(types.Operator):
         b = ip.brush
         if not temp["is_fallof_smooth"]:
             temp["is_fallof_smooth"] = True
-            b.curve_preset = "SMOOTH"
+            toggle_fallof("SMOOTH", b)
         return {'FINISHED'}
     
 class APAINT_OT_toggle_fallof_smoother(types.Operator):
@@ -169,7 +175,7 @@ class APAINT_OT_toggle_fallof_smoother(types.Operator):
         b = ip.brush
         if not temp["is_fallof_smoother"]:
             temp["is_fallof_smoother"] = True
-            b.curve_preset = "SMOOTHER"
+            toggle_fallof("SMOOTHER", b)
         return {'FINISHED'}
 
 class APAINT_OT_fallof_sphere(types.Operator):
@@ -182,7 +188,7 @@ class APAINT_OT_fallof_sphere(types.Operator):
         b = ip.brush
         if not temp["is_fallof_sphere"]:
             temp["is_fallof_sphere"] = True
-            b.curve_preset = "SPHERE"
+            toggle_fallof("SPHERE", b)
         return {'FINISHED'}
 
 class APAINT_OT_toggle_fallof_root(types.Operator):
@@ -195,7 +201,7 @@ class APAINT_OT_toggle_fallof_root(types.Operator):
         b = ip.brush
         if not temp["is_fallof_root"]:
             temp["is_fallof_root"] = True
-            b.curve_preset = "ROOT"
+            toggle_fallof("ROOT", b)
         return {'FINISHED'}
 
 class APAINT_OT_toggle_fallof_sharp(types.Operator):
@@ -208,7 +214,7 @@ class APAINT_OT_toggle_fallof_sharp(types.Operator):
         b = ip.brush
         if not temp["is_fallof_sharp"]:
             temp["is_fallof_sharp"] = True
-            b.curve_preset = "SHARP"
+            toggle_fallof("SHARP", b)
         return {'FINISHED'}
     
 class APAINT_OT_toggle_fallof_lin(types.Operator):
@@ -221,7 +227,7 @@ class APAINT_OT_toggle_fallof_lin(types.Operator):
         b = ip.brush
         if not temp["is_fallof_lin"]:
             temp["is_fallof_lin"] = True
-            b.curve_preset = "LIN"
+            toggle_fallof("LIN", b)
         return {'FINISHED'}
     
 class APAINT_OT_toggle_fallof_pow4(types.Operator):
@@ -234,7 +240,7 @@ class APAINT_OT_toggle_fallof_pow4(types.Operator):
         b = ip.brush
         if not temp["is_fallof_pow4"]:
             temp["is_fallof_pow4"] = True
-            b.curve_preset = "POW4"
+            toggle_fallof("POW4", b)
         return {'FINISHED'}
     
 class APAINT_OT_toggle_fallof_invsquare(types.Operator):
@@ -247,7 +253,7 @@ class APAINT_OT_toggle_fallof_invsquare(types.Operator):
         b = ip.brush
         if not temp["is_fallof_invsquare"]:
             temp["is_fallof_invsquare"] = True
-            b.curve_preset = "INVSQUARE"
+            toggle_fallof("INVSQUARE", b)
         return {'FINISHED'}
     
 class APAINT_OT_toggle_fallof_constant(types.Operator):
@@ -260,5 +266,5 @@ class APAINT_OT_toggle_fallof_constant(types.Operator):
         b = ip.brush
         if not temp["is_fallof_constant"]:
             temp["is_fallof_constant"] = True
-            b.curve_preset = "CONSTANT"
+            toggle_fallof("CONSTANT", b)
         return {'FINISHED'}
